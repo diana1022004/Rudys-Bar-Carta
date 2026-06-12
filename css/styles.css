@@ -388,7 +388,7 @@ CARDS ELEMENTS (Look Premium Mate)
 }
 
 /* =========================================
-BOTÓN FLOATING WHATSAPP CENTRADO MATEMÁTICO
+🔥 CORRECCIÓN WHATSAPP: CENTRADO ABSOLUTO INTERNO
 ========================================= */
 .sidebar-whatsapp-btn {
   position: fixed;
@@ -397,28 +397,26 @@ BOTÓN FLOATING WHATSAPP CENTRADO MATEMÁTICO
   width: 56px;
   height: 56px;
   background-color: #25d366;
+  color: white;
   border-radius: 50%;
   
-  /* Flexbox estricto con centrado forzado */
+  /* Uso de flex para forzar al telefonito blanco a quedar en el centro exacto */
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   
-  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
   z-index: 1000;
   text-decoration: none;
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Forzar que el SVG interno no herede desvíos ni transformaciones */
 .sidebar-whatsapp-btn svg {
-  width: 28px !important;
-  height: 28px !important;
-  fill: #ffffff !important;
-  display: block !important;
+  display: block;
+  width: 28px;
+  height: 28px;
   margin: 0 !important;
   padding: 0 !important;
-  transform: none !important; /* Resetea cualquier desvío que rompa el centrado */
 }
 
 .sidebar-whatsapp-btn:hover {
