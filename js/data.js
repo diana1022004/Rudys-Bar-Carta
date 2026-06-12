@@ -329,14 +329,18 @@ CERVEZAS (cervezas)
 { mainCategory: "cervezas", subCategory: "IMPORTADAS", name: "Corona", price: 10000 },
 { mainCategory: "cervezas", subCategory: "IMPORTADAS", name: "Stella Artois", price: 10000 },
 { mainCategory: "cervezas", subCategory: "IMPORTADAS", name: "Budweiser", price: 10000 },
-{ mainCategory: "cervezas", subCategory: "NACIONALES", name: "Club Colombia Dorada", price: 8000 },
-{ mainCategory: "cervezas", subCategory: "NACIONALES", name: "Club Colombia Roja", price: 8000 },
+{ mainCategory: "cervezas", subCategory: "NACIONALES", name: "Club Colombia Dorada", price: 9000 },
+{ mainCategory: "cervezas", subCategory: "NACIONALES", name: "Club Colombia Roja", price: 9000 },
 { mainCategory: "cervezas", subCategory: "NACIONALES", name: "Aguila light", price: 8000 },
+{ mainCategory: "cervezas", subCategory: "NACIONALES", name: "Poker", price: 8000 },
 
 /* =========================================
 CERVEZAS ARTESANALES (artesanales)
 ========================================= */
 { mainCategory: "artesanales", subCategory: "Artesanales", name: "Weidmann 12", price: 20000 },
+{ mainCategory: "artesanales", subCategory: "Artesanales", name: "Camelia", price: 13000 },
+{ mainCategory: "artesanales", subCategory: "Artesanales", name: "Silvana", price: 13000 },
+{ mainCategory: "artesanales", subCategory: "Artesanales", name: "Anturio", price: 13000 },
 
 /* =========================================
 FOOD MENU (food)
