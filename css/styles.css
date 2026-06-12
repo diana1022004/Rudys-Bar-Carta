@@ -20,6 +20,11 @@ body {
   display: none !important;
 }
 
+/* Mayor especificidad para asegurar que .hidden gane sobre .hero (display:flex!important) */
+.view-section.hidden {
+  display: none !important;
+}
+
 .view-section {
   opacity: 0;
   transition: opacity 0.4s ease-in-out;
