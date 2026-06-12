@@ -20,7 +20,6 @@ body {
   display: none !important;
 }
 
-/* Mayor especificidad para asegurar que .hidden gane sobre .hero (display:flex!important) */
 .view-section.hidden {
   display: none !important;
 }
@@ -51,13 +50,23 @@ INTERFACE 1: HOME/LANDING DESIGN
   align-items: center;
   justify-content: center;
   background: url('../assets/img/fondo-rudys.png') center/cover no-repeat fixed;
-  padding: 20px;
+  padding: 40px 24px;
+}
+
+/* Enmarcado sutil en las esquinas de la pantalla estilo menú de cuero */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 20px;
+  border: 1px solid rgba(212, 163, 89, 0.2);
+  pointer-events: none;
+  z-index: 2;
+  box-shadow: 0 0 0 2px rgba(3, 7, 18, 0.9) inset;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  /* Degradado que pasa del negro al vinotinto profundo del Pub */
   background: linear-gradient(to bottom, rgba(3, 7, 18, 0.5), rgba(45, 10, 18, 0.9));
   backdrop-filter: blur(2px);
   z-index: 1;
@@ -75,36 +84,40 @@ INTERFACE 1: HOME/LANDING DESIGN
   width: 160px;
   height: auto;
   margin-bottom: 15px;
-  /* Sombra sutil dorada premium como el logo del PDF */
   filter: drop-shadow(0 0 25px rgba(212, 163, 89, 0.3));
 }
 
 .hero-subtitle {
+  font-family: 'Oswald', sans-serif;
   font-size: 0.85rem;
-  letter-spacing: 4px;
+  letter-spacing: 5px;
   color: #9ca3af;
-  margin-bottom: 40px;
+  margin-bottom: 35px;
+  text-transform: uppercase;
 }
 
 .hero-buttons {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 18px; /* Espacio amplio entre los botones */
   max-width: 280px;
   margin: 0 auto;
   width: 100%;
 }
 
-/* Botones Premium Estilo Pub (Oro Liquido del PDF) */
+/* Botones Premium Estilo Pub (Fuente Cinzel) */
 .btn-primary {
+  font-family: 'Cinzel', serif;
   background: linear-gradient(135deg, #d4a359 0%, #b88432 100%);
   color: #030712;
   border: none;
-  padding: 16px 32px;
+  padding: 18px 32px;
   font-size: 0.95rem;
-  font-weight: 700;
-  border-radius: 12px;
+  font-weight: 800;
+  border-radius: 4px;
   cursor: pointer;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   box-shadow: 0 4px 20px rgba(184, 132, 50, 0.3);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
@@ -116,41 +129,48 @@ INTERFACE 1: HOME/LANDING DESIGN
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.03);
+  font-family: 'Cinzel', serif;
+  background: rgba(255, 255, 255, 0.02);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(212, 163, 89, 0.4);
   padding: 16px 32px;
   font-size: 0.95rem;
-  font-weight: 600;
-  border-radius: 12px;
+  font-weight: 700;
+  border-radius: 4px;
   text-decoration: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   transition: all 0.3s ease;
   text-align: center;
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(212, 163, 89, 0.1);
   border-color: #d4a359;
 }
 
-/* Bloque de información: Horario y Ubicación */
+/* =========================================
+BLOQUES DE INFO: ESPACIADOS E HIGIÉNICOS
+========================================= */
 .hero-info {
-  margin-top: 35px;
+  margin-top: 45px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 22px; /* Espacio amplio entre casillas para que respire el diseño */
+  width: 100%;
 }
 
 .hero-info-item {
   display: flex;
   align-items: center;
-  gap: 14px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(212, 163, 89, 0.15);
-  border-radius: 12px;
-  padding: 14px 18px;
+  gap: 16px;
+  background: rgba(15, 2, 5, 0.5);
+  border: 1px solid rgba(212, 163, 89, 0.2);
+  border-radius: 4px;
+  padding: 18px 22px; /* Más aire interno */
   text-align: left;
   backdrop-filter: blur(4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
 .hero-info-icon {
@@ -163,11 +183,12 @@ INTERFACE 1: HOME/LANDING DESIGN
 .hero-info-text {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
 }
 
 .hero-info-label {
-  font-size: 0.7rem;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.75rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #d4a359;
@@ -175,13 +196,15 @@ INTERFACE 1: HOME/LANDING DESIGN
 }
 
 .hero-info-value {
-  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
   color: #f3f4f6;
   font-weight: 500;
+  line-height: 1.5;
 }
 
 /* =========================================
-INTERFACE 2: THE MENU DESIGN (Estilo Vinotinto & Oro)
+INTERFACE 2: THE MENU DESIGN
 ========================================= */
 .menu-interface {
   padding-top: 20px; 
@@ -190,7 +213,6 @@ INTERFACE 2: THE MENU DESIGN (Estilo Vinotinto & Oro)
   position: relative;
 }
 
-/* Capa que emula las páginas vinotinto oscuras del menú físico */
 .menu-interface::before {
   content: '';
   position: absolute;
@@ -249,19 +271,18 @@ INTERFACE 2: THE MENU DESIGN (Estilo Vinotinto & Oro)
 .menu-header-title span {
   font-size: 0.75rem;
   letter-spacing: 4px;
-  color: #d4a359; /* Dorado oficial de las fuentes del PDF */
+  color: #d4a359;
   font-weight: 600;
 }
 
 .menu-header-title h2 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 3.5rem;
+  font-family: 'Cinzel', serif; /* Cambiado a Cinzel */
+  font-size: 2.8rem;
   letter-spacing: 2px;
   margin-top: 5px;
   color: white;
 }
 
-/* Píldoras de categoría con look mate y selección Dorada */
 .tabs-scroll-container {
   width: 100%;
   overflow-x: auto;
@@ -308,12 +329,11 @@ INTERFACE 2: THE MENU DESIGN (Estilo Vinotinto & Oro)
   font-weight: 600;
 }
 
-/* Divisores de Subcategoría (Look Dublin Pub del PDF) */
 .subcategory-divider {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin: 35px 0 20px;
+  margin: 40px 0 25px;
   width: 100%;
 }
 
@@ -324,33 +344,33 @@ INTERFACE 2: THE MENU DESIGN (Estilo Vinotinto & Oro)
 }
 
 .subcategory-divider h2 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.6rem;
+  font-family: 'Cinzel', serif; /* Subcategorías en Cinzel */
+  font-size: 1.4rem;
   letter-spacing: 3px;
-  color: #d4a359; /* Títulos dorados como en el PDF */
+  color: #d4a359;
   text-shadow: 0 0 10px rgba(212, 163, 89, 0.1);
   text-transform: uppercase;
 }
 
 /* =========================================
-CARDS ELEMENTS (Look Premium Mate)
+TARJETAS AMPLIAS Y SEPARADAS (Look Premium)
 ========================================= */
 .gallery-layout {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 28px; /* Espacio holgado entre platos para evitar que se vea amontonado */
 }
 
 .menu-item-card {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  border-radius: 14px;
-  padding: 20px 24px;
+  border: 1px solid rgba(212, 163, 89, 0.2); /* Sutil marco dorado */
+  border-radius: 4px;
+  padding: 24px 28px; /* Más espacio interno de lectura */
   transition: all 0.3s ease;
 }
 
 .menu-item-card:hover {
-  border-color: rgba(212, 163, 89, 0.25);
+  border-color: rgba(212, 163, 89, 0.4);
 }
 
 .card-main-header {
@@ -358,26 +378,29 @@ CARDS ELEMENTS (Look Premium Mate)
   justify-content: space-between;
   align-items: baseline;
   gap: 15px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .item-title {
-  font-size: 1.15rem;
-  font-weight: 600;
+  font-family: 'Oswald', sans-serif; /* Fuente del menú condensado */
+  font-size: 1.25rem;
+  font-weight: 500;
   color: #ffffff;
   letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .item-price-tag {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #d4a359; /* Precios dorados elegantes */
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #d4a359;
 }
 
 .item-description-text {
   font-size: 0.88rem;
   color: #9ca3af;
-  line-height: 1.5;
+  line-height: 1.6;
   margin-bottom: 6px;
 }
 
@@ -388,7 +411,7 @@ CARDS ELEMENTS (Look Premium Mate)
 }
 
 /* =========================================
-🔥 CORRECCIÓN WHATSAPP: CENTRADO ABSOLUTO INTERNO
+BOTÓN FLOATING WHATSAPP CENTRADO MATEMÁTICO
 ========================================= */
 .sidebar-whatsapp-btn {
   position: fixed;
@@ -397,26 +420,26 @@ CARDS ELEMENTS (Look Premium Mate)
   width: 56px;
   height: 56px;
   background-color: #25d366;
-  color: white;
   border-radius: 50%;
   
-  /* Uso de flex para forzar al telefonito blanco a quedar en el centro exacto */
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
   z-index: 1000;
   text-decoration: none;
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .sidebar-whatsapp-btn svg {
-  display: block;
-  width: 28px;
-  height: 28px;
+  width: 28px !important;
+  height: 28px !important;
+  fill: #ffffff !important;
+  display: block !important;
   margin: 0 !important;
   padding: 0 !important;
+  transform: none !important; /* Resetea cualquier desvío interno */
 }
 
 .sidebar-whatsapp-btn:hover {
