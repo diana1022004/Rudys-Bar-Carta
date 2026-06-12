@@ -40,7 +40,7 @@ body {
 }
 
 /* =========================================
-INTERFACE 1: HOME/LANDING DESIGN (OPTIMIZADA)
+INTERFACE 1: HOME/LANDING DESIGN (PREMIUM REDESIGN)
 ========================================= */
 .hero {
   position: relative;
@@ -48,121 +48,200 @@ INTERFACE 1: HOME/LANDING DESIGN (OPTIMIZADA)
   display: flex !important;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between; /* Distribuye el contenido para dejar la info abajo */
+  justify-content: space-between; /* Logo/botones arriba-centro, info abajo */
   background: url('../assets/img/fondo-rudys.png') center/cover no-repeat fixed;
-  padding: 60px 24px 40px; /* Más aire arriba y abajo */
+  padding: 48px 24px 32px;
+  overflow: hidden;
 }
 
 .hero-content {
   position: relative;
   z-index: 5;
   text-align: center;
-  max-width: 450px; /* Ancho ideal para emular la estructura de Dublin */
+  max-width: 420px;
   width: 100%;
-  margin: auto 0; /* Centra el bloque de logo y botones verticalmente */
+  margin: auto 0; /* Centra el bloque protagonista verticalmente */
 }
 
-/* 1. LOGO GIGANTE Y PROTAGONISTA */
+/* 1. LOGO PROTAGONISTA CON RESPLANDOR */
+.hero-logo-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+/* Aura dorada difusa detrás del emblema */
+.hero-logo-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -25%;
+  background: radial-gradient(circle, rgba(212, 163, 89, 0.35) 0%, rgba(212, 163, 89, 0) 70%);
+  filter: blur(18px);
+  z-index: -1;
+  pointer-events: none;
+}
+
 .hero-logo {
-  width: 240px; /* Escalado dramático de 160px a 240px para imponer presencia */
+  width: 240px; /* Tamaño imponente y central, mobile-first */
+  max-width: 65vw;
   height: auto;
-  margin-bottom: 20px;
-  filter: drop-shadow(0 0 30px rgba(212, 163, 89, 0.45));
-  transition: transform 0.3s ease;
+  filter: drop-shadow(0 0 28px rgba(212, 163, 89, 0.55))
+          drop-shadow(0 14px 30px rgba(0, 0, 0, 0.55));
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 1.b NOMBRE DE MARCA, ESTILO TABERNA PREMIUM */
+.hero-brand {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.4rem, 11vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: 6px;
+  line-height: 1;
+  margin: 14px 0 2px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #f5dfb0 0%, #d4a359 45%, #a9742e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #d4a359; /* fallback */
+  text-shadow: 0 6px 26px rgba(212, 163, 89, 0.25);
+}
+
+.hero-brand-sub {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.hero-brand-sub span {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 9px;
+  text-transform: uppercase;
+  color: rgba(243, 244, 246, 0.75);
+}
+
+.hero-brand-sub::before,
+.hero-brand-sub::after {
+  content: '';
+  display: block;
+  width: 34px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(212, 163, 89, 0.6));
+}
+
+.hero-brand-sub::after {
+  background: linear-gradient(to left, transparent, rgba(212, 163, 89, 0.6));
 }
 
 .hero-subtitle {
   font-family: 'Oswald', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   letter-spacing: 5px;
-  color: rgba(243, 244, 246, 0.7);
-  margin-bottom: 45px;
+  color: rgba(243, 244, 246, 0.65);
+  margin-bottom: 38px;
   text-transform: uppercase;
 }
 
-/* 2. BOTONES ANCHOS Y EMULADOS AL ESTILO PUB */
+/* 2. BOTONES ANCHOS Y CÓMODOS PARA EL PULGAR */
 .hero-buttons {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  width: 100%; /* Ocupan todo el ancho del contenedor */
-  max-width: 340px; /* Crecen horizontalmente para ser más clickeables */
+  gap: 16px;
+  width: 100%;
+  max-width: 360px;
   margin: 0 auto;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: block;
+  width: 100%;
 }
 
 .btn-primary {
   font-family: 'Cinzel', serif;
-  background: linear-gradient(135deg, #d4a359 0%, #b88432 100%);
-  color: #030712;
+  background: linear-gradient(135deg, #f0cb86 0%, #d4a359 45%, #b88432 100%);
+  color: #1a0e02;
   border: none;
-  padding: 18px 32px; /* Mayor grosor interno */
-  font-size: 1.1rem; /* Letra notablemente más grande */
+  padding: 20px 32px;
+  font-size: 1.15rem;
   font-weight: 800;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  box-shadow: 0 6px 25px rgba(184, 132, 50, 0.35);
+  box-shadow: 0 10px 30px rgba(184, 132, 50, 0.4), 0 2px 0 rgba(255, 255, 255, 0.25) inset;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(184, 132, 50, 0.55);
+  box-shadow: 0 14px 36px rgba(184, 132, 50, 0.6), 0 2px 0 rgba(255, 255, 255, 0.25) inset;
+}
+
+.btn-primary:active {
+  transform: translateY(0);
 }
 
 .btn-secondary {
   font-family: 'Cinzel', serif;
-  background: rgba(15, 2, 5, 0.4);
-  color: #ffffff;
-  border: 1px solid rgba(212, 163, 89, 0.5); /* Borde dorado más definido */
-  padding: 16px 32px;
+  background: rgba(212, 163, 89, 0.06);
+  color: #f3d9a4;
+  border: 1px solid rgba(212, 163, 89, 0.45);
+  padding: 17px 32px;
   font-size: 1rem;
   font-weight: 700;
-  border-radius: 4px;
+  border-radius: 6px;
   text-decoration: none;
-  letter-spacing: 2px;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
   transition: all 0.3s ease;
   text-align: center;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(6px);
 }
 
 .btn-secondary:hover {
-  background: rgba(212, 163, 89, 0.15);
+  background: rgba(212, 163, 89, 0.16);
   border-color: #d4a359;
+  color: #ffffff;
+  transform: translateY(-1px);
 }
 
-/* 3. INFORMACIÓN DE SOPORTE SECUNDARIA (MÁS PEQUEÑA) */
+/* 3. INFORMACIÓN DE SOPORTE: COMPACTA Y SUTIL */
 .hero-info {
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 100%;
-  max-width: 340px; /* Alineada al ancho de los botones */
   position: relative;
   z-index: 5;
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 360px;
 }
 
 .hero-info-item {
   display: flex;
   align-items: center;
   gap: 12px;
-  background: rgba(15, 2, 5, 0.4); /* Más traslúcido para no competir visualmente */
-  border: 1px solid rgba(212, 163, 89, 0.15); /* Borde muy sutil */
-  border-radius: 4px;
-  padding: 12px 16px; /* Casillas más compactas */
+  background: rgba(15, 2, 5, 0.38);
+  border: 1px solid rgba(212, 163, 89, 0.14);
+  border-radius: 6px;
+  padding: 11px 16px;
   text-align: left;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(6px);
 }
 
 .hero-info-icon {
   flex-shrink: 0;
-  width: 18px; /* Iconos reducidos */
-  height: 18px;
-  color: rgba(212, 163, 89, 0.7);
+  width: 16px;
+  height: 16px;
+  color: rgba(212, 163, 89, 0.75);
 }
 
 .hero-info-text {
@@ -173,60 +252,7 @@ INTERFACE 1: HOME/LANDING DESIGN (OPTIMIZADA)
 
 .hero-info-label {
   font-family: 'Oswald', sans-serif;
-  font-size: 0.65rem; /* Microtipografía de etiqueta */
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: #d4a359;
-  font-weight: 500;
-}
-
-.hero-info-value {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.82rem; /* Letra más pequeña e informativa */
-  color: rgba(243, 244, 246, 0.85);
-  font-weight: 400;
-  line-height: 1.4;
-}
-/* =========================================
-BLOQUES DE INFO: ESPACIADOS E HIGIÉNICOS
-========================================= */
-.hero-info {
-  margin-top: 45px;
-  display: flex;
-  flex-direction: column;
-  gap: 22px; /* Espacio amplio entre casillas para que respire el diseño */
-  width: 100%;
-}
-
-.hero-info-item {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  background: rgba(15, 2, 5, 0.5);
-  border: 1px solid rgba(212, 163, 89, 0.2);
-  border-radius: 4px;
-  padding: 18px 22px; /* Más aire interno */
-  text-align: left;
-  backdrop-filter: blur(4px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-}
-
-.hero-info-icon {
-  flex-shrink: 0;
-  width: 24px;
-  height: 24px;
-  color: #d4a359;
-}
-
-.hero-info-text {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.hero-info-label {
-  font-family: 'Oswald', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.6rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #d4a359;
@@ -235,10 +261,10 @@ BLOQUES DE INFO: ESPACIADOS E HIGIÉNICOS
 
 .hero-info-value {
   font-family: 'Inter', sans-serif;
-  font-size: 0.92rem;
-  color: #f3f4f6;
-  font-weight: 500;
-  line-height: 1.5;
+  font-size: 0.78rem;
+  color: rgba(243, 244, 246, 0.8);
+  font-weight: 400;
+  line-height: 1.45;
 }
 
 /* =========================================
