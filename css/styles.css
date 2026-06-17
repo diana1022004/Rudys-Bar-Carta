@@ -54,6 +54,20 @@ INTERFACE 1: HOME/LANDING DESIGN (PREMIUM REDESIGN)
   overflow: hidden;
 }
 
+/* Capa oscura + cálida (rojiza hacia abajo) que atenúa el azul brillante del damasco */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg,
+      rgba(4, 8, 18, 0.72) 0%,
+      rgba(6, 5, 10, 0.62) 40%,
+      rgba(36, 8, 14, 0.78) 78%,
+      rgba(48, 8, 12, 0.88) 100%);
+}
+
 .hero-content {
   position: relative;
   z-index: 5;
@@ -213,47 +227,52 @@ INTERFACE 1: HOME/LANDING DESIGN (PREMIUM REDESIGN)
   transform: translateY(-1px);
 }
 
-/* 3. INFORMACIÓN DE SOPORTE: COMPACTA Y SUTIL */
+/* 3. INFORMACIÓN DE SOPORTE: SIN CAJAS, CENTRADA Y SUTIL */
 .hero-info {
   position: relative;
   z-index: 5;
-  margin-top: 36px;
+  margin-top: 34px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  gap: 18px;
   width: 100%;
-  max-width: 360px;
+  max-width: 320px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(212, 163, 89, 0.18);
 }
 
 .hero-info-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  background: rgba(15, 2, 5, 0.38);
-  border: 1px solid rgba(212, 163, 89, 0.14);
-  border-radius: 6px;
-  padding: 11px 16px;
-  text-align: left;
-  backdrop-filter: blur(6px);
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  background: none;
+  border: none;
+  padding: 0;
+  backdrop-filter: none;
 }
 
 .hero-info-icon {
   flex-shrink: 0;
-  width: 16px;
-  height: 16px;
-  color: rgba(212, 163, 89, 0.75);
+  width: 15px;
+  height: 15px;
+  color: rgba(212, 163, 89, 0.8);
+  margin-top: 2px;
 }
 
 .hero-info-text {
   display: flex;
   flex-direction: column;
-  gap: 1px;
+  align-items: center;
+  gap: 2px;
 }
 
 .hero-info-label {
   font-family: 'Oswald', sans-serif;
   font-size: 0.6rem;
-  letter-spacing: 2px;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
   color: #d4a359;
   font-weight: 600;
@@ -262,9 +281,10 @@ INTERFACE 1: HOME/LANDING DESIGN (PREMIUM REDESIGN)
 .hero-info-value {
   font-family: 'Inter', sans-serif;
   font-size: 0.78rem;
-  color: rgba(243, 244, 246, 0.8);
+  color: rgba(243, 244, 246, 0.82);
   font-weight: 400;
-  line-height: 1.45;
+  line-height: 1.5;
+  text-align: center;
 }
 
 /* =========================================
@@ -497,8 +517,8 @@ BOTÓN FLOATING WHATSAPP CENTRADO MATEMÁTICO
 }
 
 .sidebar-whatsapp-btn svg {
-  width: 28px !important;
-  height: 28px !important;
+  width: 26px !important;
+  height: 26px !important;
   fill: #ffffff !important;
   display: block !important;
   margin: 0 !important;
