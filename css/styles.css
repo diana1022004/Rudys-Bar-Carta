@@ -49,23 +49,18 @@ INTERFACE 1: HOME/LANDING DESIGN (PREMIUM REDESIGN)
   flex-direction: column;
   align-items: center;
   justify-content: space-between; /* Logo/botones arriba-centro, info abajo */
-  background: url('../assets/img/fondo-rudys.png') center/cover no-repeat fixed;
+  background: url('../assets/img/fondo-rudys.png') center center/cover no-repeat;
   padding: 48px 24px 32px;
   overflow: hidden;
 }
 
-/* Capa oscura + cálida (rojiza hacia abajo) que atenúa el azul brillante del damasco */
+/* Capa oscura azul uniforme — atenúa el damasco sin añadir color rojo */
 .hero-overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background:
-    linear-gradient(180deg,
-      rgba(4, 8, 18, 0.72) 0%,
-      rgba(6, 5, 10, 0.62) 40%,
-      rgba(36, 8, 14, 0.78) 78%,
-      rgba(48, 8, 12, 0.88) 100%);
+  background: rgba(4, 8, 20, 0.68);
 }
 
 .hero-content {
@@ -77,31 +72,19 @@ INTERFACE 1: HOME/LANDING DESIGN (PREMIUM REDESIGN)
   margin: auto 0; /* Centra el bloque protagonista verticalmente */
 }
 
-/* 1. LOGO PROTAGONISTA CON RESPLANDOR */
+/* 1. LOGO SIN RESPLANDOR */
 .hero-logo-wrap {
   position: relative;
   display: flex;
   justify-content: center;
   margin-bottom: 4px;
 }
-
-/* Aura dorada difusa detrás del emblema */
-.hero-logo-wrap::before {
-  content: '';
-  position: absolute;
-  inset: -25%;
-  background: radial-gradient(circle, rgba(212, 163, 89, 0.35) 0%, rgba(212, 163, 89, 0) 70%);
-  filter: blur(18px);
-  z-index: -1;
-  pointer-events: none;
-}
-
+ 
 .hero-logo {
-  width: 240px; /* Tamaño imponente y central, mobile-first */
+  width: 240px;
   max-width: 65vw;
   height: auto;
-  filter: drop-shadow(0 0 28px rgba(212, 163, 89, 0.55))
-          drop-shadow(0 14px 30px rgba(0, 0, 0, 0.55));
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.5));
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -189,14 +172,14 @@ INTERFACE 1: HOME/LANDING DESIGN (PREMIUM REDESIGN)
   cursor: pointer;
   letter-spacing: 3px;
   text-transform: uppercase;
-  box-shadow: 0 10px 30px rgba(184, 132, 50, 0.4), 0 2px 0 rgba(255, 255, 255, 0.25) inset;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 36px rgba(184, 132, 50, 0.6), 0 2px 0 rgba(255, 255, 255, 0.25) inset;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
 
 .btn-primary:active {
@@ -235,38 +218,35 @@ INTERFACE 1: HOME/LANDING DESIGN (PREMIUM REDESIGN)
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 18px;
+  gap: 20px;
   width: 100%;
-  max-width: 320px;
-  padding-top: 22px;
+   padding-top: 22px;
   border-top: 1px solid rgba(212, 163, 89, 0.18);
 }
 
 .hero-info-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
+  gap: 6px;
   text-align: center;
   background: none;
   border: none;
   padding: 0;
-  backdrop-filter: none;
-}
+ }
 
 .hero-info-icon {
-  flex-shrink: 0;
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
   color: rgba(212, 163, 89, 0.8);
-  margin-top: 2px;
+  flex-shrink: 0;
 }
 
 .hero-info-text {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: 3px;
 }
 
 .hero-info-label {
@@ -280,10 +260,10 @@ INTERFACE 1: HOME/LANDING DESIGN (PREMIUM REDESIGN)
 
 .hero-info-value {
   font-family: 'Inter', sans-serif;
-  font-size: 0.78rem;
-  color: rgba(243, 244, 246, 0.82);
+  font-size: 0.8rem;
+  color: rgba(243, 244, 246, 0.85);
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.55;
   text-align: center;
 }
 
